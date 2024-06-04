@@ -63,7 +63,7 @@ function checkGuess() {
       selectWord();
       result.textContent = "";
       document.getElementById("guess").value = "";
-    }, 2000);
+    }, 10);
   } else {
     result.textContent = "Try again!";
     updateScore(false);
