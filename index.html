@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Complete the Word Game</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        background-color: #f8f9fa;
+        color: #333;
+        font-family: "Arial", sans-serif;
+      }
+      .letter-box {
+        display: inline-block;
+        width: 60px;
+        height: 60px;
+        line-height: 60px;
+        margin: 10px;
+        text-align: center;
+        font-size: 28px;
+        background-color: #007bff;
+        color: white;
+        border-radius: 5px;
+        transition: transform 0.2s, background-color 0.2s;
+      }
+      .letter-box:hover {
+        transform: scale(1.1);
+        background-color: #0056b3;
+      }
+      .letter-box.empty {
+        background-color: #6c757d;
+        color: #f8f9fa;
+      }
+      .container {
+        margin-top: 50px;
+      }
+      .card {
+        background-color: white;
+        border-radius: 10px;
+        padding: 30px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+      .btn-primary {
+        background-color: #007bff;
+        border: none;
+        padding: 10px 20px;
+        font-size: 1.1em;
+        transition: background-color 0.2s;
+      }
+      .btn-primary:hover {
+        background-color: #0056b3;
+      }
+      #result {
+        font-weight: bold;
+        font-size: 1.5em;
+        margin-top: 20px;
+      }
+      h1 {
+        font-size: 2.5em;
+        margin-bottom: 20px;
+        font-weight: bold;
+      }
+      input {
+        height: 45px;
+        font-size: 1.1em;
+        text-align: center;
+        color: #333;
+        border: 2px solid #007bff;
+        background-color: white;
+        border-radius: 5px;
+        transition: border-color 0.2s;
+      }
+      input:focus {
+        border-color: #0056b3;
+        outline: none;
+      }
+      .score-board {
+        margin-top: 30px;
+      }
+      .score-board h2 {
+        font-size: 1.5em;
+        font-weight: bold;
+      }
+      .score-board .score {
+        font-size: 1.2em;
+        margin: 10px 0;
+      }
+      .restart {
+        margin-top: 20px;
+        font-size: 1.2em;
+      }
+      .restart button {
+        margin-right: 10px;
+      }
+      #timer {
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container text-center">
+      <div class="card mx-auto">
+        <h1>Complete the Word</h1>
+        <div
+          id="word-container"
+          class="d-flex justify-content-center mb-4"
+        ></div>
+        <input
+          type="text"
+          id="guess"
+          class="form-control w-25 mx-auto mb-3"
+          maxlength="1"
+          placeholder="Guess the missing letter"
+        />
+        <button
+          class="btn btn-primary w-25 mx-auto d-block"
+          id="submit-button"
+          onclick="checkGuess()"
+        >
+          Submit
+        </button>
+        <div id="result" class="text-center mt-3"></div>
+        <div class="score-board">
+          <h2>Score Board</h2>
+          <div class="score">
+            Correct Guesses: <span id="correct-score">0</span>
+          </div>
+          <div class="score">
+            Incorrect Guesses: <span id="incorrect-score">0</span>
+          </div>
+        </div>
+        <div class="restart">
+          <button class="btn btn-danger" onclick="restartGame()">
+            Restart Game
+          </button>
+          <span id="timer">5:00</span>
+        </div>
+        <button
+          class="btn btn-primary w-50 mx-auto d-block mt-3"
+          id="start-button"
+          onclick="startGame()"
+          style="display: none"
+        >
+          Start Game
+        </button>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
