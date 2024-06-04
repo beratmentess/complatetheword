@@ -1,1 +1,1 @@
-https://vercel-complatetheword.vercel.app/
+https://vercel-completetheword.vercel.app/
