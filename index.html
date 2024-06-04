@@ -37,12 +37,15 @@
       }
       .container {
         margin-top: 50px;
+        padding: 0 15px; /* Mobil cihazlar için kenar boşluğu ekle */
       }
       .card {
         background-color: white;
         border-radius: 10px;
         padding: 30px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        max-width: 600px;
+        margin: 0 auto; /* Kartı ortala */
       }
       .btn-primary {
         background-color: #007bff;
@@ -50,6 +53,7 @@
         padding: 10px 20px;
         font-size: 1.1em;
         transition: background-color 0.2s;
+        width: 100%; /* Tam genişlikte düğme */
       }
       .btn-primary:hover {
         background-color: #0056b3;
@@ -64,7 +68,7 @@
         margin-bottom: 20px;
         font-weight: bold;
       }
-      input {
+      input[type="text"] {
         height: 45px;
         font-size: 1.1em;
         text-align: center;
@@ -73,6 +77,7 @@
         background-color: white;
         border-radius: 5px;
         transition: border-color 0.2s;
+        width: 100%; /* Tam genişlikte giriş alanı */
       }
       input:focus {
         border-color: #0056b3;
@@ -80,6 +85,7 @@
       }
       .score-board {
         margin-top: 30px;
+        text-align: center; /* Skor tablosunu ortala */
       }
       .score-board h2 {
         font-size: 1.5em;
@@ -92,6 +98,7 @@
       .restart {
         margin-top: 20px;
         font-size: 1.2em;
+        text-align: center; /* Yeniden başlatma düğmesini ortala */
       }
       .restart button {
         margin-right: 10px;
@@ -109,20 +116,22 @@
           id="word-container"
           class="d-flex justify-content-center mb-4"
         ></div>
-        <input
-          type="text"
-          id="guess"
-          class="form-control w-25 mx-auto mb-3"
-          maxlength="1"
-          placeholder="Guess the missing letter"
-        />
-        <button
-          class="btn btn-primary w-25 mx-auto d-block"
-          id="submit-button"
-          onclick="checkGuess()"
-        >
-          Submit
-        </button>
+        <div class="input-group mb-3">
+          <input
+            type="text"
+            id="guess"
+            class="form-control"
+            maxlength="1"
+            placeholder="Guess the missing letter"
+          />
+          <button
+            class="btn btn-primary"
+            id="submit-button"
+            onclick="checkGuess()"
+          >
+            Submit
+          </button>
+        </div>
         <div id="result" class="text-center mt-3"></div>
         <div class="score-board">
           <h2>Score Board</h2>
@@ -140,7 +149,7 @@
           <span id="timer">5:00</span>
         </div>
         <button
-          class="btn btn-primary w-50 mx-auto d-block mt-3"
+          class="btn btn-primary w-40 mx-auto d-block mt-3"
           id="start-button"
           onclick="startGame()"
           style="display: none"
